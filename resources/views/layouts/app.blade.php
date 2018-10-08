@@ -14,7 +14,7 @@
 
     <!-- Custom styles for this template -->
     <!-- <link href="starter-template.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="{{('css/app.css')}}">
+    <link rel="stylesheet" href="{{('/css/app.css')}}">
   </head>
 
   <body>

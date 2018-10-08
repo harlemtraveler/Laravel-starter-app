@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use DB;
 
 class PostsController extends Controller
 {
@@ -14,8 +15,26 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // Fetches all data from the Post Model
-        $posts = Post::all();
+        // Fetches all data from the Post Model (in no particular order)
+        // $posts = Post::all();
+
+        // An example (a bad one though) of returning a single Post with index()
+        // return Post::where('title','Post Two')->get();
+
+        // Using a plain SQL query using the DB library
+        // $posts = DB::select('SELECT * FROM posts');
+
+        // Limits the amount of data Objects returned
+        // $posts = Post::orderby('created_at','desc')->take(1)->get();
+
+        // Fetches all data & orders by date created (most current first)
+        // $posts = Post::orderby('created_at','desc')->get();
+
+        // Using pagination creates a numbered scroll at the bottom of the page
+        // Requires you to place a link in the targeted View: {{$posts->links()}}
+        $posts = Post::orderby('created_at','desc')->paginate(10);
+
+
         return view('posts.index')->with('posts', $posts);
     }
 
