@@ -20,7 +20,9 @@
   <body>
     @include('inc.navbar')
     <main role="main" class="container">
-
+      <br>
+      <br>
+      <br>
       <div class="starter-template">
         @yield('content')
       </div>
