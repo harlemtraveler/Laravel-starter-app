@@ -152,8 +152,13 @@ return [
          */
 
         /*
-         * Third Party Service Providers...
+         * Unisharp CKEditor Service Providers...
          */
+        Unisharp\Ckeditor\ServiceProvider::class,
+        /*
+         * Laravel Collective Service Providers...
+         */
+        Collective\Html\HtmlServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         /*
          * Application Service Providers...

@@ -24,6 +24,7 @@
       <br>
       <br>
       <div class="starter-template">
+        @include('inc.messages')
         @yield('content')
       </div>
 
@@ -36,5 +37,9 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <!-- <script src="../../assets/js/vendor/popper.min.js"></script> -->
     <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
   </body>
 </html>

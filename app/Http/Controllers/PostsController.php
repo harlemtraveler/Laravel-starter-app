@@ -45,7 +45,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -56,7 +56,23 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+          'title' => 'required',
+          'body' => 'required',
+        ]);
+
+        // Create Post
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        /*
+          The following code redirects after Post creation and returns a message.
+          It returns a message using the "/views/inc/messages.blade.php" file,
+          defining the "success" variable from that file.
+        */
+        return redirect('/posts')->with('success', 'Post Created');
     }
 
     /**
