@@ -1,45 +1,47 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Starter Template for Bootstrap</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Custom styles for this template -->
-    <!-- <link href="starter-template.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="{{('/css/app.css')}}">
-  </head>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
-  <body>
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+<body>
     @include('inc.navbar')
     <main role="main" class="container">
-      <br>
-      <br>
-      <br>
-      <div class="starter-template">
-        @include('inc.messages')
-        @yield('content')
-      </div>
-
-    </main><!-- /.container -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <!-- <script src="../../assets/js/vendor/popper.min.js"></script> -->
-    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+        <br>
+        <br>
+        <br>
+        <div>
+          @include('inc.messages')
+          @yield('content')
+        </div>
+    </main>
+    {{-- <div id="app">
+        <br>
+        <br>
+        <br>
+        <main class="py-4 container" role="main">
+          @include('inc.messages')
+          @yield('content')
+        </main>
+    </div> --}}
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
     </script>
-  </body>
+</body>
 </html>
